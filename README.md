@@ -51,7 +51,7 @@ This project automatically deploys to GitHub Pages using GitHub Actions when cha
 2. **Automatic Deployment**:
    - Push changes to main branch
    - GitHub Actions will automatically build and deploy
-   - Site will be live at: `https://avineshwar-krishna.github.io/personal-portfolio/`
+   - Site will be live at: `https://avineshwar-krishna.github.io/avineshwar-singh/`
 
 ## 📂 Project Structure
 
