@@ -85,5 +85,3 @@ The portfolio uses a custom design system with:
 - **GitHub**: [avineshwar-krishna](https://github.com/avineshwar-krishna)
 
 ---
-
-*Built with ❤️ using React, TypeScript, and Tailwind CSS via Lovable*
