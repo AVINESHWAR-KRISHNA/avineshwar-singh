@@ -1,67 +1,28 @@
 import { Card } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { useEffect, useState } from 'react';
 
 const SkillsSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    const element = document.getElementById('skills');
-    if (element) observer.observe(element);
-
-    return () => observer.disconnect();
-  }, []);
-
   const skillCategories = [
     {
       category: 'Programming Languages',
       icon: '💻',
-      skills: [
-        { name: 'Python', level: 95 },
-        { name: 'PySpark', level: 90 },
-        { name: 'SQL', level: 95 },
-        { name: 'T-SQL', level: 85 },
-        { name: 'Scala', level: 75 },
-      ],
+      skills: ['Python', 'PySpark', 'SQL', 'T-SQL', 'Scala'],
     },
     {
       category: 'Databases',
       icon: '🗄️',
-      skills: [
-        { name: 'Snowflake', level: 90 },
-        { name: 'PostgreSQL', level: 85 },
-        { name: 'SQL Server', level: 90 },
-        { name: 'MySQL', level: 80 },
-      ],
+      skills: ['Snowflake', 'PostgreSQL', 'SQL Server', 'MySQL'],
     },
     {
       category: 'ETL Tools',
       icon: '⚡',
-      skills: [
-        { name: 'Azure Databricks', level: 95 },
-        { name: 'SSIS', level: 85 },
-        { name: 'Informatica', level: 80 },
-        { name: 'Azure Data Factory', level: 85 },
-      ],
+      skills: ['Azure Databricks', 'SSIS', 'Informatica', 'Azure Data Factory'],
     },
     {
       category: 'Reporting & Visualization',
       icon: '📊',
-      skills: [
-        { name: 'Tableau', level: 85 },
-        { name: 'Power BI', level: 90 },
-        { name: 'Excel', level: 95 },
-      ],
+      skills: ['Tableau', 'Power BI', 'Excel'],
     },
   ];
 
@@ -94,22 +55,15 @@ const SkillsSection = () => {
                 </h3>
               </div>
 
-              <div className="space-y-4">
+              <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-foreground">
-                        {skill.name}
-                      </span>
-                      <span className="text-xs text-muted-foreground font-mono">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <Progress 
-                      value={isVisible ? skill.level : 0}
-                      className="h-2 transition-all duration-1000 delay-300"
-                    />
-                  </div>
+                  <Badge 
+                    key={skillIndex} 
+                    variant="secondary" 
+                    className="font-mono text-xs"
+                  >
+                    {skill}
+                  </Badge>
                 ))}
               </div>
             </Card>

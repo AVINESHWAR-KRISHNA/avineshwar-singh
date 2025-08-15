@@ -113,11 +113,8 @@ const ProjectsSection = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <Button variant="outline" size="sm" className="flex-1 neon-glow">
+                  <Button variant="outline" size="sm" className="w-full neon-glow">
                     View Details
-                  </Button>
-                  <Button variant="secondary" size="sm" className="flex-1">
-                    Live Demo
                   </Button>
                 </div>
               </div>
