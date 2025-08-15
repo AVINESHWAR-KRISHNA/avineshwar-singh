@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'tech': ['Orbitron', 'monospace'],
+				'sans': ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -52,16 +56,22 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+			},
+			backgroundImage: {
+				'gradient-cyber': 'var(--gradient-cyber)',
+				'gradient-data': 'var(--gradient-data)',
+				'gradient-dark': 'var(--gradient-dark)',
+			},
+			boxShadow: {
+				'neon': 'var(--shadow-neon)',
+				'data': 'var(--shadow-data)',
+				'glass': 'var(--shadow-glass)',
+			},
+			animation: {
+				'data-flow': 'dataFlow 3s infinite linear',
+				'floating': 'floating 6s ease-in-out infinite',
+				'particle-float': 'particleFloat 8s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -70,25 +80,30 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'dataFlow': {
+					'0%': { left: '-100%' },
+					'100%': { left: '100%' }
+				},
+				'floating': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-20px)' }
+				},
+				'particleFloat': {
+					'0%, 100%': { transform: 'translateY(0px) translateX(0px)' },
+					'25%': { transform: 'translateY(-10px) translateX(5px)' },
+					'75%': { transform: 'translateY(10px) translateX(-5px)' }
+				},
+				'pulse-glow': {
+					'0%, 100%': { opacity: '0.5' },
+					'50%': { opacity: '1' }
 				}
-			},
-			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
 			}
 		}
 	},

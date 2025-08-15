@@ -1,97 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
+/* Cinematic Data Engineer Portfolio Design System */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
+    /* Core Colors - Deep Space Theme */
+    --background: 222 47% 5%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 222 47% 8%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 222 47% 6%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Neon Electric Primary - Cyber Blue */
+    --primary: 193 82% 60%;
+    --primary-foreground: 222 47% 5%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Data Green Secondary */
+    --secondary: 142 77% 55%;
+    --secondary-foreground: 222 47% 5%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 222 47% 12%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Electric Accent */
+    --accent: 270 100% 70%;
+    --accent-foreground: 222 47% 5%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 222 47% 15%;
+    --input: 222 47% 10%;
+    --ring: 193 82% 60%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(193 82% 60%), hsl(270 100% 70%));
+    --gradient-data: linear-gradient(135deg, hsl(142 77% 55%), hsl(193 82% 60%));
+    --gradient-dark: linear-gradient(135deg, hsl(222 47% 8%), hsl(222 47% 12%));
+    
+    /* Glass Effects */
+    --glass-bg: hsla(222, 47%, 8%, 0.7);
+    --glass-border: hsla(193, 82%, 60%, 0.2);
+    
+    /* Shadows */
+    --shadow-neon: 0 0 30px hsla(193, 82%, 60%, 0.3);
+    --shadow-data: 0 0 20px hsla(142, 77%, 55%, 0.2);
+    --shadow-glass: 0 8px 32px hsla(222, 47%, 3%, 0.4);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
+
+  /* Dark mode inherits the same design */
 }
 
 @layer base {
@@ -100,6 +69,111 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 20% 50%, hsla(193, 82%, 60%, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsla(142, 77%, 55%, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsla(270, 100%, 70%, 0.05) 0%, transparent 50%);
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Glass Morphism Card */
+  .glass-card {
+    @apply relative rounded-xl border backdrop-blur-xl;
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+    box-shadow: var(--shadow-glass);
+  }
+  
+  /* Neon Glow Effect */
+  .neon-glow {
+    box-shadow: var(--shadow-neon);
+    transition: var(--transition-smooth);
+  }
+  
+  .neon-glow:hover {
+    box-shadow: 0 0 40px hsla(193, 82%, 60%, 0.5);
+  }
+  
+  /* Data Flow Animation */
+  .data-flow {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .data-flow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsla(193, 82%, 60%, 0.2), transparent);
+    animation: dataFlow 3s infinite;
+  }
+  
+  /* Floating Animation */
+  .floating {
+    animation: floating 6s ease-in-out infinite;
+  }
+  
+  /* Text Glow */
+  .text-glow {
+    text-shadow: 0 0 20px hsla(193, 82%, 60%, 0.5);
+  }
+}
+
+@layer utilities {
+  .font-tech {
+    font-family: 'Orbitron', monospace;
+  }
+  
+  .gradient-text {
+    background: var(--gradient-cyber);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .gradient-border {
+    position: relative;
+  }
+  
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: var(--gradient-cyber);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes dataFlow {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes particleFloat {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  25% { transform: translateY(-10px) translateX(5px); }
+  75% { transform: translateY(10px) translateX(-5px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
