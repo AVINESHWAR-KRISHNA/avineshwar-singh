@@ -1,73 +1,89 @@
-# Welcome to your Lovable project
+# Avineshwar Krishna - Personal Portfolio
 
-## Project info
+A modern, cinematic portfolio website showcasing my data engineering expertise and projects.
 
-**URL**: https://lovable.dev/projects/ce27ae61-8d56-4a02-a292-d6bdb7456d4f
+## 🚀 Features
 
-## How can I edit this code?
+- **Cinematic Design**: Modern space-themed UI with particle animations
+- **Responsive Layout**: Optimized for all devices
+- **Interactive Elements**: Glass morphism effects and smooth animations
+- **SEO Optimized**: Proper meta tags and semantic HTML
+- **Fast Performance**: Built with React + Vite
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Frontend**: React 18, TypeScript
+- **Styling**: Tailwind CSS, Custom CSS animations
+- **UI Components**: Radix UI primitives
+- **Build Tool**: Vite
+- **Deployment**: GitHub Pages with GitHub Actions
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ce27ae61-8d56-4a02-a292-d6bdb7456d4f) and start prompting.
+## 🌐 Live Demo
 
-Changes made via Lovable will be committed automatically to this repo.
+Visit: [https://avineshwar-krishna.github.io/personal-portfolio/](https://avineshwar-krishna.github.io/personal-portfolio/)
 
-**Use your preferred IDE**
+## 📦 Local Development
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```bash
+# Install dependencies
+npm install
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-**Edit a file directly in GitHub**
+## 🚀 Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This project automatically deploys to GitHub Pages using GitHub Actions when changes are pushed to the main branch.
 
-**Use GitHub Codespaces**
+### Setup Instructions:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. **Enable GitHub Pages**:
+   - Go to Repository Settings > Pages
+   - Set Source to "GitHub Actions"
 
-## What technologies are used for this project?
+2. **Automatic Deployment**:
+   - Push changes to main branch
+   - GitHub Actions will automatically build and deploy
+   - Site will be live at: `https://avineshwar-krishna.github.io/personal-portfolio/`
 
-This project is built with:
+## 📂 Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+src/
+├── components/          # React components
+│   ├── ui/             # Reusable UI components
+│   ├── HeroSection.tsx # Landing section with particles
+│   ├── AboutSection.tsx # About me section
+│   ├── ExperienceSection.tsx # Work experience timeline
+│   ├── SkillsSection.tsx # Technical skills
+│   ├── ProjectsSection.tsx # Featured projects
+│   └── ContactSection.tsx # Contact information
+├── assets/             # Static assets
+├── pages/              # Page components
+└── styles/             # Global styles
+```
 
-## How can I deploy this project?
+## 🎨 Design System
 
-Simply open [Lovable](https://lovable.dev/projects/ce27ae61-8d56-4a02-a292-d6bdb7456d4f) and click on Share -> Publish.
+The portfolio uses a custom design system with:
+- **Colors**: Space-themed palette with cyan/blue accents
+- **Typography**: Orbitron for tech elements, Inter for content
+- **Effects**: Glass morphism, neon glows, particle animations
+- **Animations**: Smooth transitions and interactive hover effects
 
-## Can I connect a custom domain to my Lovable project?
+## 📧 Contact
 
-Yes, you can!
+- **Email**: avineshwar.krishna@example.com
+- **LinkedIn**: [LinkedIn Profile]
+- **GitHub**: [avineshwar-krishna](https://github.com/avineshwar-krishna)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+*Built with ❤️ using React, TypeScript, and Tailwind CSS via Lovable*
