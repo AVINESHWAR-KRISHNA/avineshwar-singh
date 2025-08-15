@@ -18,10 +18,6 @@ A modern, cinematic portfolio website showcasing my data engineering expertise a
 - **Build Tool**: Vite
 - **Deployment**: GitHub Pages with GitHub Actions
 
-## 🌐 Live Demo
-
-Visit: [https://avineshwar-krishna.github.io/personal-portfolio/](https://avineshwar-krishna.github.io/personal-portfolio/)
-
 ## 📦 Local Development
 
 ```bash
