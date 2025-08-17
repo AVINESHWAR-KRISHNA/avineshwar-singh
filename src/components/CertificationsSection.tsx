@@ -1,7 +1,10 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const CertificationsSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const certifications = [
     {
       icon: '🐍',
@@ -48,7 +51,7 @@ const CertificationsSection = () => {
   ];
 
   return (
-    <section id="certifications" className="py-20 relative">
+    <section ref={ref} id="certifications" className={`py-20 relative transition-all duration-1000 ${isVisible ? 'animate-slide-in-up' : 'opacity-0'}`}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-tech font-bold mb-6 gradient-text">
@@ -63,7 +66,8 @@ const CertificationsSection = () => {
           {certifications.map((cert, index) => (
             <Card 
               key={index} 
-              className="glass-card group hover:scale-105 transition-all duration-300 overflow-hidden relative"
+              className={`glass-card group hover:scale-105 transition-all duration-300 overflow-hidden relative ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+              style={{ animationDelay: `${index * 200}ms` }}
             >
               {/* Gradient Background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${cert.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>

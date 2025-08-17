@@ -3,8 +3,11 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const ContactSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const contactMethods = [
     {
       icon: '📧',
@@ -20,7 +23,7 @@ const ContactSection = () => {
       value: 'Connect on LinkedIn',
       description: 'Professional networking',
       gradient: 'from-secondary to-accent',
-      href: 'https://www.linkedin.com/in/avineshwar-krishna-singh',
+      href: 'https://www.linkedin.com/in/avineshwar-krishna/',
     },
     {
       icon: '🐙',
@@ -33,7 +36,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 relative">
+    <section ref={ref} id="contact" className={`py-20 relative transition-all duration-1000 ${isVisible ? 'animate-slide-in-up' : 'opacity-0'}`}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-tech font-bold mb-6 gradient-text">

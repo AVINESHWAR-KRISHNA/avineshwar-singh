@@ -1,8 +1,11 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const ProjectsSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const projects = [
     {
       title: 'ETL - Batch & Historical',
@@ -59,7 +62,7 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 relative">
+    <section ref={ref} id="projects" className={`py-20 relative transition-all duration-1000 ${isVisible ? 'animate-slide-in-up' : 'opacity-0'}`}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-tech font-bold mb-6 gradient-text">
@@ -74,7 +77,8 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className="glass-card group hover:scale-105 transition-all duration-300 overflow-hidden relative"
+              className={`glass-card group hover:scale-105 transition-all duration-300 overflow-hidden relative ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+              style={{ animationDelay: `${index * 300}ms` }}
             >
               {/* Gradient Background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>
@@ -113,8 +117,13 @@ const ProjectsSection = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <Button variant="outline" size="sm" className="w-full neon-glow">
-                    View Details
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full neon-glow"
+                    onClick={() => window.open('https://github.com/avineshwar-krishna', '_blank')}
+                  >
+                    View on GitHub
                   </Button>
                 </div>
               </div>
@@ -134,7 +143,11 @@ const ProjectsSection = () => {
             <p className="text-muted-foreground mb-6">
               Check out my GitHub for additional projects and contributions to the data engineering community
             </p>
-            <Button size="lg" className="neon-glow font-tech">
+            <Button 
+              size="lg" 
+              className="neon-glow font-tech"
+              onClick={() => window.open('https://github.com/avineshwar-krishna', '_blank')}
+            >
               Visit GitHub Profile
             </Button>
           </Card>

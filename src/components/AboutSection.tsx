@@ -1,7 +1,10 @@
 import { Card } from '@/components/ui/card';
 import CountUp from 'react-countup';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const AboutSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const achievements = [
     {
       icon: '🚀',
@@ -27,7 +30,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 relative">
+    <section ref={ref} id="about" className={`py-20 relative transition-all duration-1000 ${isVisible ? 'animate-slide-in-up' : 'opacity-0'}`}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-tech font-bold mb-6 gradient-text">
@@ -42,7 +45,7 @@ const AboutSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {achievements.map((achievement, index) => (
-            <Card key={index} className="glass-card p-8 text-center hover:scale-105 transition-transform duration-300 neon-glow">
+            <Card key={index} className={`glass-card p-8 text-center hover:scale-105 transition-transform duration-300 neon-glow ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: `${index * 200}ms` }}>
               <div className="text-4xl mb-4">{achievement.icon}</div>
               <div className="font-tech text-3xl font-bold mb-2 gradient-text">
                 <CountUp

@@ -1,8 +1,11 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useEffect, useState } from 'react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const SkillsSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const skillCategories = [
     {
       category: 'Programming Languages',
@@ -33,7 +36,7 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 relative">
+    <section ref={ref} id="skills" className={`py-20 relative transition-all duration-1000 ${isVisible ? 'animate-slide-in-up' : 'opacity-0'}`}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-tech font-bold mb-6 gradient-text">
@@ -47,7 +50,7 @@ const SkillsSection = () => {
         {/* Core Skills with Progress Bars */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-6xl mx-auto">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="glass-card p-8 hover:scale-105 transition-all duration-300 neon-glow">
+            <Card key={index} className={`glass-card p-8 hover:scale-105 transition-all duration-300 neon-glow ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: `${index * 200}ms` }}>
               <div className="flex items-center mb-6">
                 <span className="text-3xl mr-3">{category.icon}</span>
                 <h3 className="font-tech text-lg font-bold text-secondary">

@@ -1,7 +1,10 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const ExperienceSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const experiences = [
     {
       title: 'Software Engineer ETL',
@@ -45,7 +48,7 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 relative">
+    <section ref={ref} id="experience" className={`py-20 relative transition-all duration-1000 ${isVisible ? 'animate-slide-in-up' : 'opacity-0'}`}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-tech font-bold mb-6 gradient-text">
@@ -74,7 +77,7 @@ const ExperienceSection = () => {
               </div>
 
               <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:ml-auto' : ''}`}>
-                <Card className="glass-card p-8 hover:scale-105 transition-all duration-300 neon-glow data-flow">
+                <Card className={`glass-card p-8 hover:scale-105 transition-all duration-300 neon-glow data-flow ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`} style={{ animationDelay: `${index * 300}ms` }}>
                   <div className="mb-4">
                     <h3 className="text-xl font-tech font-bold text-primary mb-2">
                       {exp.title}
