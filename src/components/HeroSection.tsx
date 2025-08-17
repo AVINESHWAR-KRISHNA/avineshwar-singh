@@ -57,11 +57,20 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" className="neon-glow font-tech data-flow">
-              <a href="#projects">View Projects</a>
+            <Button 
+              size="lg" 
+              className="neon-glow font-tech data-flow"
+              onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              View Projects
             </Button>
-            <Button variant="outline" size="lg" className="gradient-border">
-              <a href="#contact">Contact Me</a>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="gradient-border"
+              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Contact Me
             </Button>
           </div>
 

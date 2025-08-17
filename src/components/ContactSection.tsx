@@ -9,9 +9,10 @@ const ContactSection = () => {
     {
       icon: '📧',
       title: 'Email',
-      value: 'avineshwar.krishna@example.com',
+      value: 'avineshwarkrishnasingh@gmail.com',
       description: 'Drop me a line anytime',
       gradient: 'from-primary to-secondary',
+      href: 'mailto:avineshwarkrishnasingh@gmail.com',
     },
     {
       icon: '💼',
@@ -19,6 +20,7 @@ const ContactSection = () => {
       value: 'Connect on LinkedIn',
       description: 'Professional networking',
       gradient: 'from-secondary to-accent',
+      href: 'https://www.linkedin.com/in/avineshwar-krishna-singh',
     },
     {
       icon: '🐙',
@@ -26,6 +28,7 @@ const ContactSection = () => {
       value: 'View Projects',
       description: 'Code repositories & contributions',
       gradient: 'from-accent to-primary',
+      href: 'https://github.com/avineshwar-krishna',
     },
   ];
 
@@ -49,28 +52,33 @@ const ContactSection = () => {
             </h3>
             
             {contactMethods.map((method, index) => (
-              <Card 
+              <a 
                 key={index} 
-                className="glass-card p-6 hover:scale-105 transition-all duration-300 neon-glow cursor-pointer group"
+                href={method.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
               >
-                <div className="flex items-center">
-                  <div className="text-3xl mr-4">{method.icon}</div>
-                  <div className="flex-1">
-                    <h4 className="font-tech text-lg font-bold text-primary mb-1">
-                      {method.title}
-                    </h4>
-                    <p className="text-foreground font-medium mb-1">
-                      {method.value}
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      {method.description}
-                    </p>
+                <Card className="glass-card p-6 hover:scale-105 transition-all duration-300 neon-glow cursor-pointer group">
+                  <div className="flex items-center">
+                    <div className="text-3xl mr-4">{method.icon}</div>
+                    <div className="flex-1">
+                      <h4 className="font-tech text-lg font-bold text-primary mb-1">
+                        {method.title}
+                      </h4>
+                      <p className="text-foreground font-medium mb-1">
+                        {method.value}
+                      </p>
+                      <p className="text-muted-foreground text-sm">
+                        {method.description}
+                      </p>
+                    </div>
+                    <div className="ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-primary">→</span>
+                    </div>
                   </div>
-                  <div className="ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-primary">→</span>
-                  </div>
-                </div>
-              </Card>
+                </Card>
+              </a>
             ))}
 
             {/* Current Status */}
@@ -85,8 +93,8 @@ const ContactSection = () => {
               <div className="flex flex-wrap gap-2 mt-4">
                 <Badge variant="secondary">Remote</Badge>
                 <Badge variant="secondary">Hybrid</Badge>
+                <Badge variant="secondary">Full-time</Badge>
                 <Badge variant="outline">Contract</Badge>
-                <Badge variant="outline">Full-time</Badge>
               </div>
             </Card>
           </div>

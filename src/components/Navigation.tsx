@@ -21,6 +21,13 @@ const Navigation = () => {
     { label: 'Contact', href: '#contact' },
   ];
 
+  const smoothScroll = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled ? 'glass-card border-b' : 'bg-transparent'
@@ -33,18 +40,18 @@ const Navigation = () => {
           
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.label}
-                href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300 text-sm font-medium"
+                onClick={() => smoothScroll(item.href)}
+                className="text-foreground/80 hover:text-primary transition-colors duration-300 text-sm font-medium bg-transparent border-none cursor-pointer"
               >
                 {item.label}
-              </a>
+              </button>
             ))}
           </div>
 
-          <Button variant="outline" size="sm" className="neon-glow">
-            <a href="#contact">Let's Connect</a>
+          <Button variant="outline" size="sm" className="neon-glow" onClick={() => smoothScroll('#contact')}>
+            Let's Connect
           </Button>
         </div>
       </div>
