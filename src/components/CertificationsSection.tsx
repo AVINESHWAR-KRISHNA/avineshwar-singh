@@ -66,7 +66,7 @@ const CertificationsSection = () => {
           {certifications.map((cert, index) => (
             <Card 
               key={index} 
-              className={`glass-card group hover:scale-105 transition-all duration-300 overflow-hidden relative ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+              className={`glass-card group overflow-hidden relative cursor-pointer ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
               style={{ animationDelay: `${index * 200}ms` }}
             >
               {/* Gradient Background */}

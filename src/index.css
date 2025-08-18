@@ -54,6 +54,7 @@
     --shadow-neon: 0 0 30px hsla(193, 82%, 60%, 0.3);
     --shadow-data: 0 0 20px hsla(142, 77%, 55%, 0.2);
     --shadow-glass: 0 8px 32px hsla(222, 47%, 3%, 0.4);
+    --shadow-hover: 0 25px 50px -12px hsla(193, 82%, 60%, 0.25), 0 0 40px hsla(193, 82%, 60%, 0.15);
 
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -84,10 +85,33 @@
 @layer components {
   /* Glass Morphism Card */
   .glass-card {
-    @apply relative rounded-xl border backdrop-blur-xl;
+    @apply relative rounded-xl border backdrop-blur-xl transition-all duration-500 ease-out;
     background: var(--glass-bg);
     border-color: var(--glass-border);
     box-shadow: var(--shadow-glass);
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  
+  .glass-card:hover {
+    @apply scale-110 z-20;
+    box-shadow: 
+      var(--shadow-hover),
+      0 0 0 1px hsla(193, 82%, 60%, 0.1),
+      inset 0 1px 0 hsla(193, 82%, 60%, 0.1);
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.1) translateZ(20px);
+    backdrop-filter: blur(20px) saturate(150%);
+  }
+
+  .glass-card:hover::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: conic-gradient(from 0deg, hsl(193 82% 60%), hsl(142 77% 55%), hsl(270 100% 70%), hsl(193 82% 60%));
+    z-index: -1;
+    opacity: 0.3;
+    animation: rotateBorder 3s linear infinite;
   }
   
   /* Neon Glow Effect */
@@ -160,6 +184,11 @@
 @keyframes dataFlow {
   0% { left: -100%; }
   100% { left: 100%; }
+}
+
+@keyframes rotateBorder {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @keyframes floating {

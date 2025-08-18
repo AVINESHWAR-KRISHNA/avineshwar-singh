@@ -45,7 +45,7 @@ const AboutSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {achievements.map((achievement, index) => (
-            <Card key={index} className={`glass-card p-8 text-center hover:scale-105 transition-transform duration-300 neon-glow ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: `${index * 200}ms` }}>
+            <Card key={index} className={`glass-card p-8 text-center group cursor-pointer ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: `${index * 200}ms` }}>
               <div className="text-4xl mb-4">{achievement.icon}</div>
               <div className="font-tech text-3xl font-bold mb-2 gradient-text">
                 <CountUp

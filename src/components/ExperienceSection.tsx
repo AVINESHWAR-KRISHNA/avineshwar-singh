@@ -77,7 +77,7 @@ const ExperienceSection = () => {
               </div>
 
               <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:ml-auto' : ''}`}>
-                <Card className={`glass-card p-8 hover:scale-105 transition-all duration-300 neon-glow data-flow ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`} style={{ animationDelay: `${index * 300}ms` }}>
+                <Card className={`glass-card p-8 group cursor-pointer ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`} style={{ animationDelay: `${index * 300}ms` }}>
                   <div className="mb-4">
                     <h3 className="text-xl font-tech font-bold text-primary mb-2">
                       {exp.title}

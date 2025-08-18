@@ -77,7 +77,7 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className={`glass-card group hover:scale-105 transition-all duration-300 overflow-hidden relative ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+              className={`glass-card group overflow-hidden relative cursor-pointer ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
               style={{ animationDelay: `${index * 300}ms` }}
             >
               {/* Gradient Background */}
@@ -136,7 +136,7 @@ const ProjectsSection = () => {
 
         {/* GitHub CTA */}
         <div className="text-center mt-16">
-          <Card className="glass-card p-8 max-w-2xl mx-auto">
+          <Card className="glass-card p-8 max-w-2xl mx-auto group cursor-pointer">
             <h3 className="font-tech text-xl font-bold mb-4 gradient-text">
               Explore More Projects
             </h3>

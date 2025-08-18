@@ -76,6 +76,8 @@ export default {
 				'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
 				'slide-in-right': 'slideInRight 0.8s ease-out forwards',
 				'scale-in': 'scaleIn 0.7s ease-out forwards',
+				'rotate-border': 'rotateBorder 3s linear infinite',
+				'hover-glow': 'hoverGlow 0.5s ease-out forwards',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -146,6 +148,18 @@ export default {
 					'100%': {
 						opacity: '1',
 						transform: 'scale(1) perspective(1000px) rotateX(0deg)'
+					}
+				},
+				'rotateBorder': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'hoverGlow': {
+					'0%': {
+						boxShadow: '0 0 0 hsl(var(--primary) / 0)'
+					},
+					'100%': {
+						boxShadow: '0 0 40px hsl(var(--primary) / 0.3), 0 0 80px hsl(var(--primary) / 0.1)'
 					}
 				}
 			}

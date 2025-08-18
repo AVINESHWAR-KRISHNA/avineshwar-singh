@@ -50,7 +50,7 @@ const SkillsSection = () => {
         {/* Core Skills with Progress Bars */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-6xl mx-auto">
           {skillCategories.map((category, index) => (
-            <Card key={index} className={`glass-card p-8 hover:scale-105 transition-all duration-300 neon-glow ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: `${index * 200}ms` }}>
+            <Card key={index} className={`glass-card p-8 group cursor-pointer ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: `${index * 200}ms` }}>
               <div className="flex items-center mb-6">
                 <span className="text-3xl mr-3">{category.icon}</span>
                 <h3 className="font-tech text-lg font-bold text-secondary">
@@ -75,7 +75,7 @@ const SkillsSection = () => {
 
         {/* Technology Cloud */}
         <div className="max-w-4xl mx-auto">
-          <Card className="glass-card p-8">
+          <Card className="glass-card p-8 group cursor-pointer">
             <h3 className="font-tech text-xl font-bold text-center mb-6 gradient-text">
               Technologies & Tools
             </h3>
@@ -98,7 +98,7 @@ const SkillsSection = () => {
 
         {/* File Format Expertise */}
         <div className="max-w-2xl mx-auto mt-8">
-          <Card className="glass-card p-6">
+          <Card className="glass-card p-6 group cursor-pointer">
             <h4 className="font-tech text-lg font-bold text-center mb-4 text-primary">
               File Format Expertise
             </h4>
