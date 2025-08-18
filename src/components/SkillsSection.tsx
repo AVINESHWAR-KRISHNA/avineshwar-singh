@@ -48,9 +48,9 @@ const SkillsSection = () => {
         </div>
 
         {/* Core Skills with Progress Bars */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-6xl mx-auto card-container">
           {skillCategories.map((category, index) => (
-            <Card key={index} className={`glass-card p-8 group cursor-pointer ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: `${index * 200}ms` }}>
+            <Card key={index} className={`glass-card p-8 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: `${index * 200}ms` }}>
               <div className="flex items-center mb-6">
                 <span className="text-3xl mr-3">{category.icon}</span>
                 <h3 className="font-tech text-lg font-bold text-secondary">
