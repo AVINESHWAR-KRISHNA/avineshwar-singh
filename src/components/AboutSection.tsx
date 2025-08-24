@@ -37,9 +37,9 @@ const AboutSection = () => {
             Transforming Complex Data Challenges
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            Senior Data Engineer with extensive experience in designing and implementing robust data architectures. 
+            Senior Data Engineer with over 5 years of experience in designing and implementing robust data architectures. 
             Specialized in building scalable ETL pipelines and optimizing data workflows for large-scale systems. 
-            Strong background in distributed computing and big data technologies.
+            Strong background in distributed computing, big data technologies, and modern data mesh architectures.
           </p>
         </div>
 
