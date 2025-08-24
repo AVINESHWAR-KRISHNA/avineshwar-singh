@@ -84,13 +84,15 @@
 }
 
 @layer components {
-  /* Simple Retro Card Styles */
+  /* Enhanced Interactive Card Styles */
   .glass-card {
-    @apply relative rounded-lg border backdrop-blur-sm transition-all duration-300 ease-out;
+    @apply relative rounded-lg border backdrop-blur-sm transition-all duration-500 ease-out;
     background: var(--glass-bg);
     border-color: var(--glass-border);
     box-shadow: var(--shadow-card);
     will-change: transform;
+    cursor: pointer;
+    transform-style: preserve-3d;
   }
   
   /* Card Container for Enhanced Focus Effect */
@@ -98,28 +100,62 @@
     @apply opacity-30 scale-90;
     filter: brightness(0.5) blur(2px);
     transform: scale(0.9) translateY(5px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .glass-card:hover {
     @apply scale-125 z-50;
     box-shadow: 
       var(--shadow-hover),
-      0 0 40px hsla(210, 100%, 65%, 0.3),
-      0 0 80px hsla(210, 100%, 65%, 0.1);
+      0 0 40px hsla(210, 100%, 65%, 0.4),
+      0 0 80px hsla(210, 100%, 65%, 0.2),
+      inset 0 0 20px hsla(210, 100%, 65%, 0.1);
     border-color: hsl(var(--primary));
-    transform: scale(1.25) translateY(-15px) perspective(1000px) rotateX(5deg);
+    transform: scale(1.25) translateY(-20px) perspective(1000px) rotateX(8deg) rotateY(2deg);
+    animation: cardPulse 2s infinite alternate;
   }
   
-  /* Simple Button Hover - No Glow */
+  /* Individual Content Blocks Hover Effects */
+  .content-block {
+    @apply transition-all duration-300 ease-out rounded-lg p-4;
+    transform-style: preserve-3d;
+  }
+  
+  .content-block:hover {
+    @apply scale-105;
+    transform: scale(1.05) translateY(-5px) perspective(500px) rotateX(5deg);
+    box-shadow: 0 8px 25px hsla(210, 100%, 65%, 0.2);
+  }
+  
+  /* Enhanced Interactive Buttons */
   .neon-glow {
     box-shadow: var(--shadow-card);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
   }
   
   .neon-glow:hover {
-    box-shadow: var(--shadow-hover);
+    box-shadow: 
+      var(--shadow-hover),
+      0 0 30px hsla(210, 100%, 65%, 0.4);
     border-color: hsl(var(--primary));
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.05);
+  }
+  
+  .neon-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsla(210, 100%, 65%, 0.3), transparent);
+    transition: left 0.5s;
+  }
+  
+  .neon-glow:hover::before {
+    left: 100%;
   }
   
   /* Data Flow Animation */
@@ -246,5 +282,47 @@
   100% {
     opacity: 1;
     transform: scale(1) perspective(1000px) rotateX(0deg);
+  }
+}
+
+/* Enhanced Interactive Animations */
+@keyframes cardPulse {
+  0% {
+    box-shadow: 
+      var(--shadow-hover),
+      0 0 40px hsla(210, 100%, 65%, 0.4),
+      0 0 80px hsla(210, 100%, 65%, 0.2);
+  }
+  100% {
+    box-shadow: 
+      var(--shadow-hover),
+      0 0 50px hsla(210, 100%, 65%, 0.6),
+      0 0 100px hsla(210, 100%, 65%, 0.3);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3) translateY(50px);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05) translateY(-10px);
+  }
+  70% {
+    transform: scale(0.9) translateY(0px);
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
   }
 }

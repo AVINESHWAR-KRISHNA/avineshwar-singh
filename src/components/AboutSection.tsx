@@ -45,29 +45,31 @@ const AboutSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 card-container">
           {achievements.map((achievement, index) => (
-            <Card key={index} className={`glass-card p-8 text-center ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: `${index * 200}ms` }}>
-              <div className="text-4xl mb-4">{achievement.icon}</div>
-              <div className="font-tech text-3xl font-bold mb-2 gradient-text">
-                <CountUp
-                  end={parseInt(achievement.stat)}
-                  duration={2.5}
-                  delay={index * 0.5}
-                />
-                {achievement.suffix}
+            <Card key={index} className={`glass-card p-8 text-center group ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: `${index * 200}ms` }}>
+              <div className="content-block">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{achievement.icon}</div>
+                <div className="font-tech text-3xl font-bold mb-2 gradient-text group-hover:scale-105 transition-transform duration-300">
+                  <CountUp
+                    end={parseInt(achievement.stat)}
+                    duration={2.5}
+                    delay={index * 0.5}
+                  />
+                  {achievement.suffix}
+                </div>
+                <h3 className="font-tech text-lg font-semibold mb-3 text-secondary group-hover:text-primary transition-colors duration-300">
+                  {achievement.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-foreground transition-colors duration-300">
+                  {achievement.description}
+                </p>
               </div>
-              <h3 className="font-tech text-lg font-semibold mb-3 text-secondary">
-                {achievement.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {achievement.description}
-              </p>
             </Card>
           ))}
         </div>
 
         {/* Terminal-style About */}
         <div className="max-w-2xl mx-auto">
-          <div className="glass-card p-8 font-mono text-sm">
+          <div className="glass-card p-8 font-mono text-sm group hover:scale-105 transition-all duration-500">
             <div className="flex items-center mb-4">
               <div className="flex space-x-2 mr-4">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>

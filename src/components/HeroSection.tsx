@@ -51,7 +51,7 @@ const HeroSection = () => {
 
           {/* Experience Badge */}
           <div className="glass-card inline-block p-6 mb-8 neon-glow">
-            <div className="font-tech text-3xl font-bold gradient-text">4.5+</div>
+            <div className="font-tech text-3xl font-bold gradient-text">5+</div>
             <div className="text-secondary text-sm font-medium mt-1">Years Experience</div>
           </div>
 

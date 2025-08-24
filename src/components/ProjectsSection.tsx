@@ -86,32 +86,34 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className={`glass-card overflow-hidden relative ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+              className={`glass-card overflow-hidden relative group ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
               style={{ animationDelay: `${index * 300}ms` }}
             >
               {/* Gradient Background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>
               
               <div className="relative p-8">
-                <div className="flex items-center mb-4">
-                  <span className="text-3xl mr-3">{project.icon}</span>
-                  <h3 className="font-tech text-xl font-bold gradient-text">
-                    {project.title}
-                  </h3>
-                </div>
-
-                <div className="mb-4">
-                  <div className="text-sm text-secondary font-semibold mb-1">
-                    {project.company}
+                <div className="content-block">
+                  <div className="flex items-center mb-4">
+                    <span className="text-3xl mr-3 group-hover:scale-110 transition-transform duration-300">{project.icon}</span>
+                    <h3 className="font-tech text-xl font-bold gradient-text group-hover:scale-105 transition-transform duration-300">
+                      {project.title}
+                    </h3>
                   </div>
-                  <div className="text-xs text-muted-foreground font-mono">
-                    Duration: {project.duration}
-                  </div>
-                </div>
 
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {project.description}
-                </p>
+                  <div className="mb-4">
+                    <div className="text-sm text-secondary font-semibold mb-1 group-hover:text-primary transition-colors duration-300">
+                      {project.company}
+                    </div>
+                    <div className="text-xs text-muted-foreground font-mono group-hover:text-foreground transition-colors duration-300">
+                      Duration: {project.duration}
+                    </div>
+                  </div>
+
+                  <p className="text-muted-foreground mb-6 leading-relaxed group-hover:text-foreground transition-colors duration-300">
+                    {project.description}
+                  </p>
+                </div>
 
                 <ul className="space-y-2 mb-6">
                   {project.features.map((feature, featureIndex) => (
@@ -154,7 +156,7 @@ const ProjectsSection = () => {
 
         {/* GitHub CTA */}
         <div className="text-center mt-16">
-          <Card className="glass-card p-8 max-w-2xl mx-auto group cursor-pointer">
+          <Card className="glass-card p-8 max-w-2xl mx-auto group cursor-pointer hover:scale-105 transition-all duration-500">
             <h3 className="font-tech text-xl font-bold mb-4 gradient-text">
               Explore More Projects
             </h3>

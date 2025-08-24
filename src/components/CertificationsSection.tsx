@@ -66,29 +66,31 @@ const CertificationsSection = () => {
           {certifications.map((cert, index) => (
             <Card 
               key={index} 
-              className={`glass-card overflow-hidden relative ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+              className={`glass-card overflow-hidden relative group ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
               style={{ animationDelay: `${index * 200}ms` }}
             >
               {/* Gradient Background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${cert.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>
               
               <div className="relative p-6">
-                <div className="text-4xl mb-4 text-center">{cert.icon}</div>
-                
-                <h3 className="font-tech text-lg font-bold text-center mb-2 gradient-text">
-                  {cert.title}
-                </h3>
-                
-                <p className="text-muted-foreground text-center text-sm mb-4">
-                  {cert.subtitle}
-                </p>
+                <div className="content-block">
+                  <div className="text-4xl mb-4 text-center group-hover:scale-110 transition-transform duration-300">{cert.icon}</div>
+                  
+                  <h3 className="font-tech text-lg font-bold text-center mb-2 gradient-text group-hover:scale-105 transition-transform duration-300">
+                    {cert.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground text-center text-sm mb-4 group-hover:text-foreground transition-colors duration-300">
+                    {cert.subtitle}
+                  </p>
 
-                <div className="flex flex-wrap gap-2 justify-center">
-                  {cert.tags.map((tag) => (
-                    <Badge key={tag} variant="outline" className="text-xs font-mono">
-                      {tag}
-                    </Badge>
-                  ))}
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {cert.tags.map((tag) => (
+                      <Badge key={tag} variant="outline" className="text-xs font-mono hover:scale-110 transition-transform duration-200 group-hover:border-primary">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
               </div>
 

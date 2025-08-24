@@ -90,34 +90,36 @@ const ExperienceSection = () => {
               </div>
 
               <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:ml-auto' : ''}`}>
-                <Card className={`glass-card p-8 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`} style={{ animationDelay: `${index * 300}ms` }}>
-                  <div className="mb-4">
-                    <h3 className="text-xl font-tech font-bold text-primary mb-2">
-                      {exp.title}
-                    </h3>
-                    <div className="text-secondary font-semibold mb-1">
-                      {exp.company}
+                <Card className={`glass-card p-8 group ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`} style={{ animationDelay: `${index * 300}ms` }}>
+                  <div className="content-block">
+                    <div className="mb-4">
+                      <h3 className="text-xl font-tech font-bold text-primary mb-2 group-hover:text-secondary transition-colors duration-300">
+                        {exp.title}
+                      </h3>
+                      <div className="text-secondary font-semibold mb-1 group-hover:text-primary transition-colors duration-300">
+                        {exp.company}
+                      </div>
+                      <div className="text-sm text-muted-foreground font-mono group-hover:text-foreground transition-colors duration-300">
+                        {exp.period}
+                      </div>
                     </div>
-                    <div className="text-sm text-muted-foreground font-mono">
-                      {exp.period}
+
+                    <ul className="space-y-3 mb-6 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                      {exp.description.map((item, i) => (
+                        <li key={i} className="flex items-start">
+                          <span className="text-primary mr-2 mt-1 text-xs group-hover:scale-110 transition-transform duration-200">▶</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex flex-wrap gap-2">
+                      {exp.technologies.map((tech) => (
+                        <Badge key={tech} variant="secondary" className="font-mono text-xs hover:scale-110 transition-transform duration-200 group-hover:border-primary">
+                          {tech}
+                        </Badge>
+                      ))}
                     </div>
-                  </div>
-
-                  <ul className="space-y-3 mb-6 text-sm text-muted-foreground">
-                    {exp.description.map((item, i) => (
-                      <li key={i} className="flex items-start">
-                        <span className="text-primary mr-2 mt-1 text-xs">▶</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="font-mono text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
                   </div>
                 </Card>
               </div>
