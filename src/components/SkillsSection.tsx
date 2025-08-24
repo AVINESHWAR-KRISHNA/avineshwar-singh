@@ -10,7 +10,7 @@ const SkillsSection = () => {
     {
       category: 'Programming Languages',
       icon: '💻',
-      skills: ['Python', 'PySpark', 'SQL', 'T-SQL', 'Scala'],
+      skills: ['Python', 'PySpark', 'Scala', 'SQL', 'T-SQL'],
     },
     {
       category: 'Databases',
@@ -20,7 +20,12 @@ const SkillsSection = () => {
     {
       category: 'ETL Tools',
       icon: '⚡',
-      skills: ['Azure Databricks', 'SSIS', 'Informatica', 'Azure Data Factory'],
+      skills: ['SSIS', 'Informatica', 'Azure Databricks', 'Azure Data Factory'],
+    },
+    {
+      category: 'System Design',
+      icon: '🏗️',
+      skills: ['Database Design', 'ETL Pipeline', 'Integration Design'],
     },
     {
       category: 'Reporting & Visualization',
@@ -30,9 +35,10 @@ const SkillsSection = () => {
   ];
 
   const technologies = [
-    'Docker', 'Kafka', 'Zookeeper', 'Debezium', 'Azure', 'Git', 'Jira',
-    'Pandas', 'SQLAlchemy', 'NumPy', 'Scikit-learn', 'TensorFlow',
-    'Pytest', 'Black', 'Flake8', 'Google Pub/Sub', 'REST APIs'
+    'Pandas', 'SQLAlchemy', 'Pyodbc', 'NumPy', 'Scikit-learn', 'TensorFlow',
+    'Dask', 'Google Pub/Sub', 'Pytest', 'Pandera', 'Black', 'Flake8',
+    'Bitbucket', 'GitHub', 'GitHub Actions', 'Jira', 'Azure', 'Postman',
+    'Kafka', 'Zookeeper', 'Debezium', 'Docker', 'API Development'
   ];
 
   return (

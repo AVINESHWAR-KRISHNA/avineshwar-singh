@@ -9,53 +9,62 @@ const ProjectsSection = () => {
   const projects = [
     {
       title: 'ETL - Batch & Historical',
-      description: 'Enterprise-scale ETL pipeline for efficient data transfer between delta tables and on-premise SQL server.',
+      description: 'Enterprise-scale ETL pipeline for data transfer between delta tables and on-premise SQL server with 8 months development duration.',
+      company: 'R1 RCM',
+      duration: '8 months',
       features: [
-        'Created ETL pipeline leveraging multiple technologies for data transfer',
-        'Optimized load time using Python concurrency and parallel Databricks workflows',
-        'Implemented comprehensive data validation and quality checks',
-        'Added webhooks for notifications and dashboard monitoring',
+        'Created ETL pipeline leveraging multiple technologies to transfer data from delta tables to on-premise SQL server and back to delta table',
+        'Optimized load time utilizing Python concurrency thread pool executor for parallelizing loads and implementing parallelization in Databricks workflow to save DBU cost',
+        'Added data validation checks to ensure quality of data and provide summary report',
+        'Added webhooks for notifying pipeline status through team channel and mail, creating logs to build Databricks dashboard for stakeholders',
       ],
-      technologies: ['PySpark', 'Azure Databricks', 'SQL Server', 'Unity Catalog', 'Git'],
+      technologies: ['PySpark', 'Azure Databricks', 'Workflow', 'Python', 'SQL Server', 'Unity Catalog', 'Git'],
       gradient: 'from-primary to-secondary',
       icon: '🏗️',
     },
     {
       title: 'ETL - DataStreaming',
-      description: 'Real-time data streaming pipeline using Google Pub/Sub for efficient data distribution.',
+      description: 'Real-time data streaming pipeline to subscribe data from Google Pub/Sub and distribute to specific servers with 5 months development.',
+      company: 'R1 RCM',
+      duration: '5 months',
       features: [
-        'Built real-time streaming pipeline with Google Pub/Sub integration',
-        'Implemented data transformation and multi-server distribution',
-        'Added parallel processing and retry mechanisms',
-        'Orchestrated via Windows service with auto-recovery',
+        'Built real-time data streaming pipeline to subscribe data from Google Pub/Sub and push to server',
+        'Transformation of data and further distributing feeds to specific servers and databases',
+        'Added parallelism using thread pool executor for load balancing and retry mechanism as well as logging',
+        'Orchestrated process through Windows service auto recover from failures and notification system for real-time alerts',
       ],
-      technologies: ['Python', 'SQL Server', 'Google Pub/Sub', 'Pandas', 'SQLAlchemy'],
+      technologies: ['Python', 'SQL Server', 'Google Pub/Sub', 'Pandas', 'SQLAlchemy', 'Google-Pubsub-v1', 'Git'],
       gradient: 'from-secondary to-accent',
       icon: '🚀',
     },
     {
-      title: 'ML - Stock Prediction Model',
-      description: 'Machine learning pipeline for stock market analysis and prediction using multiple models.',
+      title: 'ML - Model (Stock Prediction)',
+      description: 'Machine learning pipeline for stock market analysis and prediction using multiple models with 4 months self-learning development.',
+      company: 'Self Learning',
+      duration: '4 months',
       features: [
-        'Developed ML pipeline for Yahoo Finance data extraction',
-        'Implemented data cleansing and technical indicator generation',
-        'Trained and maintained multiple prediction models',
-        'Created action recommendation system based on model predictions',
+        'Developed ML pipeline to extract historical stock data from Yahoo Finance',
+        'Data cleansing and technical indicator for action generation and feature extraction',
+        'Training multiple models and retraining if already exists',
+        'Recommendation for taking action from multiple model predictions',
       ],
-      technologies: ['Python', 'Scikit-learn', 'Keras', 'XGBoost', 'yfinance'],
+      technologies: ['Python', 'Scikit-learn', 'Keras', 'XGBoost', 'SciPy', 'Pandas', 'NumPy', 'yfinance'],
       gradient: 'from-accent to-primary',
       icon: '📈',
+      projectLink: 'Project Link', // Mentioned in resume but no actual URL provided
     },
     {
       title: 'Testing Tool - ETL',
-      description: 'Python GUI application for automated ETL validation and testing.',
+      description: 'Python GUI application for automating ETL validation with heterogeneous data sources developed over 6 months.',
+      company: 'Assimilate Solutions, A SitusAMC Company',
+      duration: '6 months',
       features: [
-        'Developed automated ETL validation GUI tool',
-        'Implemented smoke testing and standard checks',
-        'Added support for heterogeneous data source comparison',
-        'Automated validation summary reporting',
+        'Developed Python GUI application for automating ETL validation',
+        'Automated smoke testing and standard checks',
+        'Data comparison from heterogeneous sources (Snowflake, SQL Server, CSV, Excel, TSV, TAB)',
+        'Automated summary report from validation',
       ],
-      technologies: ['Python', 'Pandas', 'Dask', 'SQLAlchemy', 'Snowflake'],
+      technologies: ['Python', 'Pandas', 'Dask', 'SQLAlchemy', 'Snowflake-connector', 'Datacompy', 'Git'],
       gradient: 'from-primary via-secondary to-accent',
       icon: '🧪',
     },
@@ -89,6 +98,15 @@ const ProjectsSection = () => {
                   <h3 className="font-tech text-xl font-bold gradient-text">
                     {project.title}
                   </h3>
+                </div>
+
+                <div className="mb-4">
+                  <div className="text-sm text-secondary font-semibold mb-1">
+                    {project.company}
+                  </div>
+                  <div className="text-xs text-muted-foreground font-mono">
+                    Duration: {project.duration}
+                  </div>
                 </div>
 
                 <p className="text-muted-foreground mb-6 leading-relaxed">

@@ -7,9 +7,22 @@ const ExperienceSection = () => {
   
   const experiences = [
     {
+      title: 'Senior Software Engineer ETL',
+      company: 'CGI',
+      period: 'Feb 2025 - Present',
+      description: [
+        'Designed robust data models and implemented scalable data mesh architecture to support cross-domain data accessibility and governance.',
+        'Led migration of SAS processes to PySpark, modernizing workflows while preserving critical business logic and analytical accuracy.',
+        'Developed reusable, high-quality ETL pipelines enabling seamless integration of structured and semi-structured datasets across multiple platforms.',
+        'Created source, aggregated, and consumer-aligned data products to enhance usability and ensure domain-driven analytical insights delivery.',
+      ],
+      technologies: ['PySpark', 'Data Mesh', 'SAS', 'Azure Databricks', 'Python'],
+      isActive: true,
+    },
+    {
       title: 'Software Engineer ETL',
       company: 'R1 RCM',
-      period: 'Sep 2022 - Present',
+      period: 'Sep 2022 - Feb 2025',
       description: [
         'Designed and maintained ETL pipelines (SQL, Python, SSIS, Azure Databricks, Pyspark) for data transformation, ensuring data accuracy, reliability, and accessibility for BI.',
         'Analyzed complex datasets to identify patterns, trends, and insights, informing business decisions and optimizing data processing/analysis.',
@@ -18,7 +31,7 @@ const ExperienceSection = () => {
         'Migrated ETL solutions, slashing workload from 3 FTE to 0.5 FTE while maintaining quality through 90% workflow efficiency gains.',
       ],
       technologies: ['Azure Databricks', 'PySpark', 'Python', 'SQL', 'SSIS'],
-      isActive: true,
+      isActive: false,
     },
     {
       title: 'Quality Engineer ETL',
